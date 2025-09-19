@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  reconhece-face:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: reconhece-face-gpu
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    volumes:
+      - ./:/app
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./notebooks:/app/notebooks
+    ports:
+      - "8888:8888"   # JupyterLab
+      - "6006:6006"   # TensorBoard (opcional)
+    working_dir: /app
+    command: >
+      bash -c "
+      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+      "
