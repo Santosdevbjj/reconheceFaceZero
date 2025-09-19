@@ -1,27 +1,34 @@
 version: "3.9"
 
 services:
-  reconhece-face:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: reconhece-face-gpu
-    restart: unless-stopped
+  dev-gpu:
+    image: nvidia/cuda:12.2.0-devel-ubuntu22.04
+    container_name: dev-gpu-container
+    runtime: nvidia
     deploy:
       resources:
         reservations:
           devices:
-            - capabilities: [gpu]
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
     volumes:
-      - ./:/app
-      - ./data:/app/data
-      - ./models:/app/models
-      - ./notebooks:/app/notebooks
+      - ./workspace:/workspace        # Monta a pasta local no container
+    working_dir: /workspace
+    stdin_open: true                  # Mantém STDIN aberto (como -i)
+    tty: true                         # Aloca um terminal (como -t)
+    shm_size: "16g"                   # Evita erro de memória em deep learning
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - DEBIAN_FRONTEND=noninteractive
     ports:
-      - "8888:8888"   # JupyterLab
-      - "6006:6006"   # TensorBoard (opcional)
-    working_dir: /app
+      - "8888:8888"   # Jupyter Notebook
+      - "6006:6006"   # TensorBoard
+      - "5000:5000"   # Flask API ou outro serviço
     command: >
-      bash -c "
-      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
-      "
+      bash -c "apt-get update &&
+               apt-get install -y python3 python3-pip git &&
+               pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121 &&
+               pip3 install jupyterlab tensorflow opencv-python matplotlib pandas &&
+               jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root"
