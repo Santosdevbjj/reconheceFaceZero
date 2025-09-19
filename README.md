@@ -9,7 +9,9 @@
 ---
 
 **DESCRIÇÃO**
-O objetivo principal deste projeto é trabalhar com as bibliotecas e frameworks estudados e analisados em nossas aulas. Neste sentido, a proposta padrão envolve um sistema de detecção e reconhecimento de faces, utilizando o framework TensorFlow em conjuntos com as bibliotecas que o projetista julgue necessárias, de forma ilimitada.
+O objetivo principal deste projeto é trabalhar com as bibliotecas e frameworks estudados e analisados em nossas aulas.
+
+Neste sentido, a proposta padrão envolve um sistema de detecção e reconhecimento de faces, utilizando o framework TensorFlow em conjuntos com as bibliotecas que o projetista julgue necessárias, de forma ilimitada.
 
 ---
 
@@ -69,37 +71,37 @@ O repositório foi estruturado para ser **modular, profissional e de fácil manu
 ---
 
 
-Explicação dos principais arquivos/pastas
+**Explicação dos principais arquivos/pastas**
 
-Dockerfile → Define o ambiente para rodar YOLOv8, Hugging Face e FastAPI.
+**Dockerfile** → Define o ambiente para rodar YOLOv8, Hugging Face e FastAPI.
 
-docker-compose.yml → Orquestração de containers, com suporte a GPU (CUDA).
+**docker-compose.yml** → Orquestração de containers, com suporte a GPU (CUDA).
 
-Makefile → Atalhos para make build, make train, make test.
+**Makefile** → Atalhos para make build, make train, make test.
 
-environment.yml → Definição do ambiente Conda.
+**environment.yml** → Definição do ambiente Conda.
 
-requirements.txt → Lista de bibliotecas Python.
+**requirements.txt** → Lista de bibliotecas Python.
 
-setup.sh → Script de preparação inicial.
+**setup.sh** → Script de preparação inicial.
 
-train.sh → Executa o treinamento do modelo YOLOv8.
+**train.sh** → Executa o treinamento do modelo YOLOv8.
 
-inference.sh → Executa a inferência em imagens/vídeos.
+**inference.sh** → Executa a inferência em imagens/vídeos.
 
-run_jupyter.sh → Abre ambiente interativo em Jupyter Notebook.
+**run_jupyter.sh** → Abre ambiente interativo em Jupyter Notebook.
 
-notebooks/ → Contém experimentos e análises exploratórias.
+**notebooks/** → Contém experimentos e análises exploratórias.
 
-src/ → Código-fonte (funções auxiliares, pré-processamento, etc).
+**src/** → Código-fonte (funções auxiliares, pré-processamento, etc).
 
-tests/ → Testes automatizados para manter a qualidade do código.
+**tests/** → Testes automatizados para manter a qualidade do código.
 
 
 
 ---
 
-🛠️ Tecnologias Utilizadas
+🛠️ **Tecnologias Utilizadas**
 
 Python 3.10+
 
@@ -121,9 +123,9 @@ pytest para testes automatizados
 
 ---
 
-💻 Requisitos
+💻 **Requisitos**
 
-Hardware
+**Hardware**
 
 CPU (mínimo Quad-core)
 
@@ -134,7 +136,7 @@ Memória RAM: mínimo 8 GB (16 GB recomendado)
 Espaço em disco: 20 GB+ (datasets + modelos)
 
 
-Software
+**Software**
 
 Docker + NVIDIA Container Toolkit (para uso de GPU)
 
@@ -146,7 +148,7 @@ NVIDIA Drivers atualizados
 
 ---
 
-🚀 Como Usar
+🚀 **Como Usar**
 
 1️⃣ Clonar o repositório
 
@@ -174,7 +176,7 @@ make run
 
 ---
 
-✅ Testes
+✅ **Testes**
 
 Rodar testes automatizados:
 
@@ -183,7 +185,7 @@ pytest tests/
 
 ---
 
-📜 Licença
+📜 **Licença**
 
 Este projeto está sob a licença MIT.
 
@@ -192,7 +194,7 @@ Este projeto está sob a licença MIT.
 
 
 
----
+
 
 
 
