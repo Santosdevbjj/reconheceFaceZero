@@ -1,0 +1,51 @@
+name: yolo-env-gpu
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+dependencies:
+  # Core
+  - python=3.10
+  - numpy>=1.23.5
+  - pandas>=1.5.3
+  - matplotlib>=3.7.1
+  - seaborn>=0.12.2
+  - scipy>=1.10.1
+
+  # Jupyter environment
+  - notebook>=7.0.0
+  - ipython>=8.12.0
+  - jupyterlab>=4.0.0
+
+  # Computer Vision & Image Processing
+  - opencv
+  - pillow>=10.0.0
+
+  # Deep Learning Framework (com CUDA 11.8)
+  - pytorch>=2.0.0
+  - torchvision>=0.15.0
+  - torchaudio>=2.0.0
+  - pytorch-cuda=11.8  # suporte GPU NVIDIA (CUDA 11.8)
+
+  # Data Augmentation
+  - albumentations>=1.3.1
+
+  # Utilities
+  - tqdm>=4.65.0
+  - pyyaml>=6.0
+  - requests>=2.31.0
+
+  # Development and Testing
+  - pytest>=7.4.0
+  - black>=23.3.0
+  - flake8>=6.1.0
+
+  # Optional interactive plots
+  - plotly>=5.15.0
+
+  # Pip-only packages
+  - pip
+  - pip:
+      - ultralytics>=8.0.20
+      - thop>=0.1.1.post2209072238 
+      
