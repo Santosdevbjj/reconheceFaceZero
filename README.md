@@ -8,7 +8,7 @@
 
 ---
 
-# 🚀 reconheceFaceZero — Sistema de Reconhecimento Facial
+# 🚀 Sistema de Reconhecimento Facial
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
 [![YOLOv8](https://img.shields.io/badge/YOLOv8-Object%20Detection-red)](https://github.com/ultralytics/ultralytics)
